@@ -1,0 +1,272 @@
+{% extends "_layout" %} {% block main %}
+
+    <!--   MAIN block   -->
+    <!-- Carousel Card -->
+    {% if entry.slider.all() %}
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for block in entry.slider.all() %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index - 1 }}"
+                        class="{{ loop.index == 1? 'active':'' }}"></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for block in entry.slider.all() %}
+                    <div class="carousel-item {{ loop.index == 1? 'active':'' }}">
+                        <div class="page-header header-filter page-header-small"
+
+                             style="background-image: url('{{ block.image.one.url }}');">
+                            <div class="container px-5">
+                                <div class="row">
+                                    <div class="col-md-6 text-left px-5">
+                                        <h1 class="title">{{ block.head }}</h1>
+                                        <h4>{{ block.description }}
+                                        </h4>
+                                        <br>
+                                        <div class="buttons">
+                                            <a href="{{ block.urlLink }}" class="btn btn-green btn-lg">
+                                                Read More
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <i class="material-icons">keyboard_arrow_left</i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <i class="material-icons">keyboard_arrow_right</i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- End Carousel Card -->
+    <div class="main ">
+        <div class="header-filter bg-filter"
+             style="background-repeat:no-repeat; background-size:cover;  background-image: url('https://media.istockphoto.com/vectors/abstract-grey-hitech-corporate-background-vector-id820616106')">
+            <!-- Services -->
+            <div class="container">
+                <div class="features-1">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
+                            <h2 class="title  mb-0">Our Service </h2>
+                        </div>
+                    </div>
+                    {% if craft.entries.section('services').all() %}
+
+                        <ul class="nav nav-pills nav-pills-icons row" id="muTab" role="tablist">
+                            <!--
+                                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                            -->
+                            {% for block in craft.entries.section('services').all() %}
+
+                                <li class="nav-item m-0 col-md-4">
+                                    <a class="nav-link tab-item {{ loop.index == 1? 'active':'' }}"
+                                       href="#{{ loop.index }}"
+                                       role="tab" data-toggle="tab" data-url="{{ block.url }}">
+                                        <h4 class="font-weight-bold">
+                                            <i class="material-icons">{{ block.icon }}</i>
+                                            {{ block.title }}
+                                        </h4>
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                        <div class="tab-content tab-space">
+
+                            {% for block in craft.entries.section('services').all() %}
+
+                                <div class="tab-pane h4 {{ loop.index == 1? 'active':'' }}" id="{{ loop.index }}">
+                                    {{ block.description }}
+                                </div>
+
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+            </div>
+
+
+            <!--NEWS -->
+            {% if craft.entries.section('services').all() %}
+
+            <div class="container">
+                <div class="row">
+                    <div class=" ml-auto mr-auto">
+                        <h2 class="title">Latest News </h2>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-10 ml-auto mr-auto">
+                        <div class="row">
+                            {% for block in craft.entries.section('news').all() %}
+                                <div class="col-md-4">
+                                    <div class="card card-plain card-blog">
+                                        <div class="card-header card-header-image">
+                                            <a href="{{ block.url }}">
+                                                <img class="img img-raised"
+                                                     src="{{ block.image.one.url }}">
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-category {{ loop.index == 1?'text-info':loop.index == 2?'text-success':'text-danger' }}">
+                                                <i
+                                                        class="material-icons">{{ loop.index == 2?'business_center':'trending_up' }}</i>
+                                                {{ block.category.one }}
+                                            </h6>
+                                            <h4 class="card-title">
+                                                <a href="{{ block.url }}">{{ block.title }}</a>
+                                            </h4>
+                                            <p class="card-description">
+                                                {{ block.description }}
+                                                <a href="{{ block.url }}"> Read More </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="contactus-1 section-image"
+             style="background-image: url('https://images.pexels.com/photos/531360/pexels-photo-531360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 class="title">Get in Touch</h2>
+                        <h5 class="description">You need more information? Check what other persons are saying about our
+                            product. They are very happy with their purchase.
+                        </h5>
+                        <div class="info info-horizontal">
+                            <div class="icon icon-primary">
+                                <i class="material-icons">pin_drop</i>
+                            </div>
+                            <div class="description">
+                                <h4 class="info-title">Find us at the office</h4>
+                                <p> Bld Mihail Kogalniceanu, nr. 8,
+                                    <br> 7652 Bucharest,
+                                    <br> Romania
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info info-horizontal">
+                            <div class="icon icon-primary">
+                                <i class="material-icons">phone</i>
+                            </div>
+                            <div class="description">
+                                <h4 class="info-title">Give us a ring
+                                </h4>
+                                <p> Michael Jordan
+                                    <br> +40 762 321 762
+                                    <br> Mon - Fri, 8:00-22:00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 ml-auto">
+                        <div class="card card-contact">
+                            <form id="contact-form" method="post">
+                                <div class="card-header card-header-raised card-header-primary text-center">
+                                    <h4 class="card-title">Contact Us</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating is-empty bmd-form-group">
+                                                <label class="bmd-label-floating">Family name</label>
+                                                <input type="text" name="name" class="form-control">
+                                                <span class="material-input"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group label-floating is-empty bmd-form-group">
+                                                <label class="bmd-label-floating">First name</label>
+                                                <input type="text" name="name" class="form-control">
+                                                <span class="material-input"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group label-floating is-empty bmd-form-group">
+                                        <label class="bmd-label-floating">Email address</label>
+                                        <input type="email" name="email" class="form-control">
+                                        <span class="material-input"></span>
+                                    </div>
+                                    <div class="form-group label-floating is-empty bmd-form-group">
+                                        <label for="exampleMessage1" class="bmd-label-floating">Your Message</label>
+                                        <textarea name="message" class="form-control" id="exampleMessage1"
+                                                  rows="6"></textarea>
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+                                <div class="card-footer justify-content-between">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" value=""> I'm not a robot
+                                            <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-green pull-right">SEND MESSAGE</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% macro errorList(errors) %}
+        {% if errors %}
+            <ul class="errors">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endmacro %}
+
+    {% from _self import errorList %}
+    {% if craft.app.session.hasFlash('notice') %}
+        <p class="message notice">{{ craft.app.session.getFlash('notice') }}</p>
+    {% elseif craft.app.session.hasFlash('error') %}
+        <p class="message error">{{ craft.app.session.getFlash('error') }}</p>
+    {% endif %}
+    <form method="post" action="" accept-charset="UTF-8">
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="contact-form/send">
+
+        <h3><label for="from-name">Your Name</label></h3>
+        <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+        <h3><label for="from-email">Your Email</label></h3>
+        <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+        <h3><label for="subject">Subject</label></h3>
+        <input id="subject" type="text" name="subject" value="{{ message.subject ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+        <h3><label for="message">Message</label></h3>
+        <textarea rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
+        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+        <input type="submit" value="Send">
+    </form>
+{% endblock %}
