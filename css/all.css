@@ -1,0 +1,188 @@
+/*.header-3{*/
+/*margin-top: 85px;*/
+/*}*/
+/*.page-header-small{*/
+/*height: 65vh;*/
+/*}*/
+/*.navbar.navbar-transparent{*/
+/*color:rgb(73, 117, 27);*/
+/*background-color: white !important;*/
+/*}*/
+/*.navbar{*/
+/*background-color: white !important;*/
+/*color:rgb(73, 117, 27);*/
+/*}*/
+/*.navbar-toggler{*/
+/*color:rgb(73, 117, 27);*/
+
+/*}*/
+.navbar.navbar-transparent img {
+    margin-top: -25px;
+}
+
+.navbar img {
+    margin-top: -17px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.navbar .navbar-brand span{
+    font-size: 20px;
+    font-weight: 400;
+    vertical-align: super;
+}
+
+[class*="features-"], [class*="team-"], [class*="projects-"], [class*="pricing-"], [class*="testimonials-"], [class*="contactus-"] {
+    padding: 42px 0;
+}
+
+.info {
+    padding: 6px;
+}
+
+/*.dropdown-menu{*/
+/*background-color: black;*/
+/*}*/
+/*.dropdown-menu .dropdown-item, .dropdown-menu li > a{*/
+/*color: whitesmoke;*/
+/*}*/
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
+    background-color: #adbe4f;
+}
+
+.card-blog {
+    margin-top: 30px;
+}
+
+/*.main-raised{*/
+/*margin: -18px 30px 0px;*/
+/*}*/
+.section-image {
+    background: inherit;
+}
+
+.tab-item {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.nav-pills .nav-item .tab-item.nav-link.active {
+    background-color: #adbe4f;
+}
+
+.btn-green {
+    background-color: #adbe4f;
+}
+
+.btn-green:hover, .btn-green:focus {
+    background-color: #93a44a;
+}
+
+.nav-link:hover {
+    background-color: #93a44a;
+}
+
+.nav-pills .nav-item i {
+    font-size: 54px;
+}
+
+.card .card-header-primary, .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
+    background: linear-gradient(60deg, #adbe4f, #7e8e29);
+}
+
+.navbar.navbar-transparent {
+    background-color: #00000078 !important;
+}
+
+.carousel .carousel-control-prev .material-icons, .carousel .carousel-control-next .material-icons {
+    font-size: 100px;
+}
+
+@media screen and (min-width: 1340px) {
+    .carousel-control-prev {
+        left: 50px;
+    }
+
+    .carousel-control-next {
+        right: 50px;
+    }
+
+}
+
+.table .td-actions .btn {
+    padding: 12px 30px;
+}
+
+.bg-green {
+    background: #adbe4e1f;
+}
+
+.post-description {
+    padding-top: 70px;
+}
+
+.post {
+    min-height: 600px;
+
+}
+
+.post p {
+    font-size: 1.188rem;
+    line-height: 1.5em;
+    color: #555;
+    margin-bottom: 30px
+}
+
+.nav-pills.nav-pills-rose .nav-item .nav-link.active, .nav-pills.nav-pills-rose .nav-item .nav-link.active:focus, .nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
+    background-color: #93a44a;
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgb(147, 164, 73);
+}
+
+.nav-pills .nav-item .nav-link.active {
+    background-color: #93a44a;
+}
+
+.about-office {
+    padding-bottom: 70px;
+}
+
+.bg-filter::before {
+    background: rgba(247, 247, 247, 0.53);
+}
+
+.post.post-about p {
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.about-li li {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #555;
+}
+
+.nav-pills .nav-item .nav-link {
+    font-size: 1.188rem;
+}
+
+.features-1 {
+    height: 380px;
+}
+
+.header-paragraph p {
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 1.5em;
+}
+
+.mt--much {
+    margin-top: -105px;
+}
+
+p {
+    font-size:inherit;
+}
